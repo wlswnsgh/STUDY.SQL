@@ -69,3 +69,6 @@ create table RESERVATION(
 	DATE  			date
 );
 
+alter table RESERVATION add EX_1 varchar(25);
+
+
