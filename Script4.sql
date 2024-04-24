@@ -284,19 +284,13 @@ update book set PUBLISHER = '없음' where TITLE = '자바프로그래밍';
 update book set PRICE = 0 where TITLE = '자바프로그래밍';
 
 update contacts set FIRST_NAME = '지수' where LAST_NAME = '이' and PHONE like '%-2341-%';
--- select * from contacts where LAST_NAME = '이' and PHONE like '%-2341-%';
 
 update contacts set FIRST_NAME = '현우', PHONE = '010-1234-5678' where LAST_NAME ='최';
 
 update class set CLASS_TIME = '12:30:00' where CLASS_NAME = CLASS_NAME;
--- select * from class  where CLASS_NAME = CLASS_NAME;
 
 update class set CLASS_NAME = '문학' where CLASS_NO = 2;
 
 update product set PRICE = 5000 where PRODUCT_NO in(1,3,5);
 
 update product set CATEGORY = '기타' where PRODUCT_NO between 2 and 4; 
-
-
-
-
