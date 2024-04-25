@@ -200,6 +200,6 @@ select `DATE`, MOVIE_NAME from reservation where count(SEAT_NO);
 update reservation set SEAT_NO = 'A열' where `DATE` in(20140420);
 
 select * from product;
-select CATEGORY, max(PRICE) from product group by CATEGORY; 
+select CATEGORY, max(PRICE) from product group by CATEGORY order by max(PRICE) desc; 
 select CATEGORY, concat(PRODUCT_NAME), sum(PRICE) from product group by CATEGORY;
 

@@ -278,7 +278,6 @@ from customer; -- 한글도 가능
 
 update customer set name = '도우너';
 update customer set address = '제주도' where customer = 1;
-
 update book set PUBLISHER = '믿음사' where PRICE between 10000 and 30000;
 update book set PUBLISHER = '없음' where TITLE = '자바프로그래밍';
 update book set PRICE = 0 where TITLE = '자바프로그래밍';
@@ -294,3 +293,37 @@ update class set CLASS_NAME = '문학' where CLASS_NO = 2;
 update product set PRICE = 5000 where PRODUCT_NO in(1,3,5);
 
 update product set CATEGORY = '기타' where PRODUCT_NO between 2 and 4; 
+
+select * from customer
+where address = '제주도';
+
+-- 제주도에 사는 회원정보 삭제
+select * from customer
+where address = '제주도';
+
+-- 모든 회원정보 삭제
+delete from customer;
+
+insert into customer(NAME, ADDRESS)
+values('둘리', '서울');
+
+truncate customer;
+
+insert into customer(NAME, ADDRESS)
+VALUES('둘리', '서울');
+
+delete from gift where Price between 40000 and 60000;
+
+select * from gift where PRICE <= 20000;
+delete from gift where price <= 20000;
+
+select * from class where CLASS_TIME > 090000;
+delete from class where CLASS_TIME > 090000;
+
+select * from book where PUB_DATE = '2021-01-01' or PUB_DATE = '2021-02-01';
+delete from book where PUB_DATE = '2021-01-01' or PUB_DATE = '2021-02-01';
+select * from book;
+
+
+
+
