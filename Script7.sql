@@ -228,7 +228,7 @@ select * from book;
 
 select PRODUCT_NO as 제품번호, 
 concat('(과자)', PRODUCT_NAME),
-PRICE   
+ifnull(PRICE,0) as 가격   
 from product
 where CATEGORY = '과자';
 
@@ -238,4 +238,55 @@ select BOOK_NO,
 concat('(책)', TITLE), 
 ifnull(PRICE,0) as 가격
 from book;
+
+select BOOK_NO as '제품번호', concat('(책)', TITLE) as '제품명', ifnull(0,PRICE) as '가격' 
+from book;
+
+select PRODUCT_NO as '제품명', concat('(과자)', PRODUCT_NAME) as '제품명', ifnull(0,PRICE) as '가격'
+from product;
+
+select 
+
+-- 기본키 추가하기
+create table PERSON(
+	LAST_NAME varchar(5) primary key,
+	FIRST_NAME varchar(5),
+	NICKNAME varchar(10)
+);
+
+-- 기본키 추가하기
+create table PERSON(
+	LAST_NAME varchar(5),
+	FIRST_NAME varchar(5),
+	NICKNAME varchar(10),
+	primary key (LAST_NAME)
+);
+
+-- 기본키 삭제하기
+alter table person drop primary key;
+
+-- 다시 기본키 추가하기
+alter table person add primary key (LAST_NAME);
+
+-- 키본키의 제약사항 확인
+insert into person 
+values
+(null, '짱구', '아들'); -- NULL을 입력할 수 없음
+
+insert into person
+values
+('신', '짱구', '아들'),
+('신', '짱아', '딸'); -- 중복된 성을 입력할 수 없음
+
+create table PERSON(
+	LAST_NAME varchar(5),
+	FIRST_NAME varchar(5),
+	NICKNAME varchar(10),
+	primary key (LAST_NAME, FIRST_NAME)
+);
+
+-- 같은 성이지만, 조합이 다르기 때문에 중복이 ㄴㄴ함
+insert into person values
+('신', '짱구', '아들'),
+('신', '짱아', '딸');
 
